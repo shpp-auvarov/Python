@@ -55,7 +55,7 @@ print('list3 = %s' % list3)
 
 
 # sorting list1 with method
-def Quick_Sorting(list):
+def quick_sorting(list):
     if list.__len__() < 2:
         return list
     else:
@@ -70,11 +70,11 @@ def Quick_Sorting(list):
                 equal_list.append(checked_element_of_list)
             elif checked_element_of_list > element_of_list:
                 right_list.append(checked_element_of_list)
-    return Quick_Sorting(left_list) + equal_list + Quick_Sorting(right_list)
+    return quick_sorting(left_list) + equal_list + quick_sorting(right_list)
 
 
 # sorting with quickSort() function
-list1 = Quick_Sorting(list1)
+list1 = quick_sorting(list1)
 print("quickSort of current list1 = %s" % list1)
 
 # sorting with sorted() function
@@ -133,12 +133,12 @@ dictionary = sorted(dictionary.items(), key=lambda x: (x[1], x[0]))
 
 
 # list to dictionary
-def Convert_List_To_Dictionary(lst):
+def convert_list_to_dictionary(lst):
     res_dct = {}
     for element in lst:
         res_dct[element[0]] = element[1]
     return res_dct
 
 
-dictionary = Convert_List_To_Dictionary(dictionary)
+dictionary = convert_list_to_dictionary(dictionary)
 print(dictionary)

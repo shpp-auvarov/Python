@@ -148,9 +148,8 @@ print(numeric_variable)
 
 # Function multiply the numerical variable to the global variable and put the result to list
 # Return the list and amount of elements in this list
-def multiplication_number_to_global_variable(a):
+def multiplication_number_to_global_variable(a, list_of_variables=[]):
     global numeric_variable
-    list_of_variables = []
     list_of_variables.append(a * numeric_variable)
     return list_of_variables, list_of_variables.__len__()
 
@@ -183,10 +182,16 @@ def fibonacci_number(n):
 
 if __name__ == "__main__":
     task2()
-    print(multiplication_number_to_global_variable(2))
+    elements, size_of_list = multiplication_number_to_global_variable(2)
+    print('elements %s size of list = %s' % (elements, size_of_list))
+    elements, size_of_list = multiplication_number_to_global_variable(2, [1, 2])
+    print("elements %s size of list = %s" % (elements, size_of_list))
     print("Result of executing function of print_to_console_variables: ")
+    print_to_console_variables([1, 2, 3])
+    print_to_console_variables([1, 2, 3], a=2)
     print_to_console_variables([1, 2, 3], a=2, b='Andrey')
     print(is_divisible_by(10, 3))
     print(is_divisible_by(10, 5))
+    print(fibonacci_number(100))
     for i in range(0, 20):
         print(fibonacci_number(i))

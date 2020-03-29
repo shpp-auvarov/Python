@@ -40,13 +40,13 @@ class MyNumberClass2(MyNumberClass1):
     _protected_variable = 'protected_value'
 
     # Check if variable has String type
-    def is_string(self):
+    def __is_string(self):
         return isinstance(self.number, str)
 
 
 myNumberClass2 = MyNumberClass2(5)
 print("Is myNumberClass2 %s is divisible by %s = %s" % (myNumberClass2.number, 2, myNumberClass2.is_divisible_by(2)))
-print('Is myNumberClass2 %s has type of string =' % myNumberClass2.number, myNumberClass2.is_string())
+print('Is myNumberClass2 %s has type of string =' % myNumberClass2.number, myNumberClass2._MyNumberClass2__is_string())
 print('Protected variable equal', myNumberClass2._protected_variable)
 
 

@@ -43,6 +43,7 @@ for i in range(0, 100):
         ticket += f'{digit}'
     list_of_tickets.append(ticket)
 winning_ticket_1 = random.choice(list_of_tickets)
+list_of_tickets.remove(winning_ticket_1)
 winning_ticket_2 = random.choice(list_of_tickets)
 print(winning_ticket_1, 'winning ticket')
 print(winning_ticket_2, 'winning ticket')

@@ -48,12 +48,13 @@ winning_ticket_2 = random.choice(list_of_tickets)
 print(winning_ticket_1, 'winning ticket')
 print(winning_ticket_2, 'winning ticket')
 
+
+def throw_exception(a, b):
+    return a / b
+
+
 try:
-    def throw_exception():
-        return 2 / 0
-
-
-    throw_exception()
+    throw_exception(2, 0)
     print("Done")
 except Exception as inst:
     print("Catch exception", type(inst))

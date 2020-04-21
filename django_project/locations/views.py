@@ -7,3 +7,4 @@ def index(request):
 
 def index_second(request, text=""):
     return HttpResponse(text)
+

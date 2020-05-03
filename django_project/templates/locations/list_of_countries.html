@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block page_title %}List of countries{% endblock %}
+{% block content %}
+<h1 align="center">List of countries:</h1>
+<ul>
+    {% for item in countries_list %}
+        <li><a href="{% url 'locations:country' item %}">{{ item }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

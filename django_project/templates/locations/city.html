@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block page_title %}City{% endblock %}
+{% block content %}
+<h1 align="center">{{ initial_name }}</h1>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <td>{{ name }}</td>
+    </tr>
+    <tr>
+        <th>Country</th>
+        <td><a href="{% url 'locations:country' country %}">{{ country }}</a></td>
+    </tr>
+    <tr>
+        <th>Longitude</th>
+        <td>{{ longitude }}</td>
+    </tr>
+    <tr>
+        <th>Latitude</th>
+        <td>{{ latitude }}</td>
+    </tr>
+    <tr>
+        <th>Remove city</th>
+        <td><a class="btn btn-outline-danger" href="{% url 'locations:country' country_name name %}">Remove city</a>
+        </td>
+    </tr>
+</table>
+{% endblock %}

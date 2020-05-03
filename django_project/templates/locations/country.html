@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load extra_tags %}
+
+{% block page_title %}Countries{% endblock %}
+{% block content %}
+<h1 align="center">{{ name }}</h1>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Id</dt>
+    <dd class="col-sm-9">{{ country_id }}</dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Description</dt>
+    <dd class="col-sm-9">{{ description|slice:7 }}</dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Population</dt>
+    <dd class="col-sm-9">{{ population }}</dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Flag</dt>
+    <dd class="col-sm-9">{{ flag }}</dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Cities count</dt>
+    <dd class="col-sm-9">{{ cities_count }}</dd>
+</dl>
+{% if cities %}
+<h2 align="center">Cities:</h2>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Country_Id</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+    </tr>
+    {% for city in cities %}
+    <tr>
+        <td>{{ city.id }}</td>
+        <td><a href="{% url 'locations:city' city.name %}">{{ city.name }}</a></td>
+        <td>{{ city.country_id }}</td>
+        <td>{{ city.longitude }}</td>
+        <td>{{ city.latitude }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

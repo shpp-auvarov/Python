@@ -11,6 +11,7 @@
 
     <title>{% block page_title %}{% endblock %}</title>
 </head>
+<a class="btn btn-secondary" href="{% url 'logout' %}" style="float: right;">Logout</a>
 {% block extra_styles %}{% endblock %}
 {% block extra_scripts %}{% endblock %}
 <body>

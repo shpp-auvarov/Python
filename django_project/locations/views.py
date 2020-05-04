@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .models import City, Country
 
 
+@login_required
 def index(request):
     # return HttpResponse("Hello, world. You're at the locations index.")
     countries = Country.objects.order_by('-name')[:5]
@@ -11,7 +13,8 @@ def index(request):
     return HttpResponse(output)
 
 
-def index_second(request, text=""):
+@login_required
+def text_return_only(request, text=""):
     return HttpResponse(text)
 
 
@@ -22,6 +25,7 @@ def login(request):
     return render(request, 'locations/login.html', context)
 
 
+@login_required
 def list_of_countries(request):
     set_of_countries = Country.objects.order_by('name').values()
     entry_list = list(set_of_countries)
@@ -36,6 +40,7 @@ def list_of_countries(request):
     return render(request, 'locations/list_of_countries.html', content, )
 
 
+@login_required
 def city(request, name):
     city_object = get_object_or_404(City, name=name)
     print(city_object)
@@ -54,6 +59,7 @@ def city(request, name):
     return render(request, 'locations/city.html', content)
 
 
+@login_required
 def country(request, name):
     print(name)
     country_object = get_object_or_404(Country, name=name)
@@ -79,6 +85,7 @@ def country(request, name):
     return render(request, 'locations/country.html', content)
 
 
+@login_required
 def remove_city(request, name, city):
     try:
         City.objects.get(name=city).delete()

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = '/locations/countries'
+LOGIN_REDIRECT_URL = '/locations/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

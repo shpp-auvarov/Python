@@ -4,7 +4,7 @@ from . import views
 
 app_name = 'locations'
 urlpatterns = [
-    # path('', views.index),
+    path('', views.get_countries),
     # path('login', views.login, name='login'),
     path('countries', views.get_countries, name='countries'),
     # path('', views.get_countries, name='list_of_countries'),

@@ -15,6 +15,24 @@
 {% block extra_styles %}{% endblock %}
 {% block extra_scripts %}{% endblock %}
 <body>
+{% if request.countries %}
+<ul class="nav nav-pills">
+    <li class="dropdown">
+        <a class="dropdown-toggle"
+           data-toggle="dropdown"
+           href="#">
+            Countries
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            {% for country in request.countries %}
+            <li><a href="{% url 'locations:country' country.id %}">{{ country.name }}</a></li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </li>
+</ul>
+
 {% block content %}
 {% endblock %}
 

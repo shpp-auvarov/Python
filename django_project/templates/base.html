@@ -31,6 +31,11 @@
             {% endif %}
         </ul>
     </li>
+    {% if not 'countries' in request.path %}
+    <li>
+        <a href="{% url 'locations:countries' %}">Open all countries</a>
+    </li>
+    {% endif %}
 </ul>
 
 {% block content %}

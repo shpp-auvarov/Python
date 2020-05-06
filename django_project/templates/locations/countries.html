@@ -3,9 +3,18 @@
 {% block page_title %}List of countries{% endblock %}
 {% block content %}
 <h1 align="center">List of countries:</h1>
-<ul>
-    {% for item in countries_list %}
+<div>
+    <ul>
+        {% for item in countries_list %}
         <li><a href="{% url 'locations:country' item.id %}">{{ item.name }}</a></li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    <dl class="row" align="center">
+        <dd class="col-sm-9"><a class="btn btn-primary" href="{% url 'locations:create_new_country' %}">Add new
+            country</a>
+        </dd>
+    </dl>
+</div>
 {% endblock %}

@@ -57,7 +57,8 @@ def pre_save_handler(sender, instance, **kwargs):
 @receiver(post_save, sender=City)
 def post_save_handler(sender, instance, **kwargs):
     print("instance.country.cities_count = %s" % instance.country.cities_count)
-    instance.country.cities_count += 1
+    instance.country.cities_count = City.objects.filter(country=instance.country).count()
+    # instance.country.cities_count += 1
     instance.country.save()
 
 

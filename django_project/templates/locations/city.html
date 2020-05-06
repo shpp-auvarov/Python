@@ -21,6 +21,11 @@
         <td>{{ city.latitude }}</td>
     </tr>
     <tr>
+        <th>Edit details</th>
+        <td><a class="btn btn-secondary" href="{% url 'locations:edit_city' city.id %}">Edit details</a>
+        </td>
+    </tr>
+    <tr>
         <th>Remove city</th>
         <td><a class="btn btn-outline-danger" href="{% url 'locations:remove_city' city.country.id city.id %}">Remove
             city</a>

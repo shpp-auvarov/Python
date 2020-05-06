@@ -24,6 +24,19 @@
     <dt class="col-sm-3">Cities count</dt>
     <dd class="col-sm-9">{{ country.cities_count }}</dd>
 </dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Edit country details</dt>
+    <dd class="col-sm-9"><a class="btn btn-secondary" href="{% url 'locations:edit_country' country.id %}">Edit</a></dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Remove country</dt>
+    <dd class="col-sm-9"><a class="btn btn-outline-danger"
+                            href="{% url 'locations:remove_country' country.id %}">Remove</a></dd>
+</dl>
+<dl class="row" align="center">
+    <dt class="col-sm-3">Add new city</dt>
+    <dd class="col-sm-9"><a class="btn btn-primary" href="{% url 'locations:create_new_city' %}">Add new city</a></dd>
+</dl>
 {% if cities %}
 <h2 align="center">Cities:</h2>
 <table class="table">
@@ -33,6 +46,7 @@
         <th>Country_Id</th>
         <th>Longitude</th>
         <th>Latitude</th>
+        <th>Edit</th>
     </tr>
     {% for city in cities %}
     <tr>
@@ -41,6 +55,7 @@
         <td>{{ city.country_id }}</td>
         <td>{{ city.longitude }}</td>
         <td>{{ city.latitude }}</td>
+        <td><a class="btn btn-secondary" href="{% url 'locations:edit_city' city.id %}">Edit details</a></td>
     </tr>
     {% endfor %}
 </table>
